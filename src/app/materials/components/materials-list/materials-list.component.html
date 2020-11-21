@@ -1,6 +1,8 @@
 <app-sidebar></app-sidebar>
 <app-header></app-header>
+<br><br><br>
 <div class="main-content">
+  <br>
   <a class="btn add-btn" routerLink= "/Material" role="button">Add</a>
 
   <a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
@@ -10,6 +12,7 @@
         class="form-control"
         type="text"
         placeholder="filter by name"
+        [(ngModel)]= "textSearch"
       />
       <input
       class="form-control"
@@ -36,11 +39,14 @@
       (pageChange)="pageChange($event)"
 
     >
+    <!-- <ng-template kendoGridCellTemplate let-dataItem>
+      {{dataItem | filter : textSearch}}
+    </ng-template> -->
     <kendo-grid-column field="ID" title="ID" width="80">
       <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
           {{rowIndex+1}}
     </ng-template>
-    </kendo-grid-column>
+    </kendo-grid-column >
     <kendo-grid-column field="code" title="Material Code" width="200">
     </kendo-grid-column>
     <kendo-grid-column field="name" title="Material Name" width="200" >
@@ -53,7 +59,7 @@
     </kendo-grid-column>
     <kendo-grid-column field="Action" width="120">
       <ng-template kendoGridCellTemplate>
-          <a kendoButton routerLink= "/Material" class="btn"><i class="far fa-edit"></i></a>
+          <!-- <a kendoButton  [routerLink]="['/material/',{{ mat.ID}}]" class="btn"><i class="far fa-edit"></i></a> -->
           <a kendoButton class="btn"><i class="far fa-trash-alt"></i></a>
       </ng-template>
   </kendo-grid-column>

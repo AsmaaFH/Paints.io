@@ -11,6 +11,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SidebarComponent } from './Shared/sidebar/sidebar.component';
 import { HeaderComponent } from './Shared/header/header.component';
+import { FilterPipe } from './materials/pipes/filter.pipe';
+import { UpdateMaterialComponent } from './materials/components/update-material/update-material.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HeaderComponent } from './Shared/header/header.component';
     MaterialsListComponent,
     NewMaterialComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    FilterPipe,
+    UpdateMaterialComponent
     ],
   imports: [
     BrowserModule,

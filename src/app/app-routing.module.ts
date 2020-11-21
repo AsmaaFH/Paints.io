@@ -1,3 +1,4 @@
+import { UpdateMaterialComponent } from './materials/components/update-material/update-material.component';
 import { NewMaterialComponent } from './materials/components/new-material/new-material.component';
 import { MaterialsListComponent } from './materials/components/materials-list/materials-list.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {path: 'Materials', component: MaterialsListComponent},
   {path: 'Material', component: NewMaterialComponent},
+  {path: 'Material/:mid', component: UpdateMaterialComponent},
   { path: '',  redirectTo: '/Materials', pathMatch: 'full' }
 
 ];

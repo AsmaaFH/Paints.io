@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./materials-list.component.css']
 })
 export class MaterialsListComponent implements OnInit {
-
+  textSearch;
   constructor(private materialService: MaterialsService, private formBuilder: FormBuilder) {
   }
   index: number ;
@@ -52,14 +52,14 @@ export class MaterialsListComponent implements OnInit {
     };
   }
   ngOnInit(): void {
-    // this.subscriptions.push(this.materialService.getAllMaterials().subscribe(
-    //   (response) => {
-    //     console.log(response);
-    //     this.materialsList = response;
-    //   },
-    //   (err) => {console.log(err); }
-    // ));
-    // console.log('After Subscribe....');
+    this.materialService.getAllMaterials().subscribe(
+      (response) => {
+        console.log(response);
+        this.materialsList = response;
+      },
+      (err) => {console.log(err); }
+    );
+    console.log('After Subscribe....');
 
     this.materialsList = this.materialService.getAllMaterialsDummy();
     this.loadMaterials();
@@ -77,6 +77,10 @@ export class MaterialsListComponent implements OnInit {
     this.materialService.updatePost(material).subscribe((res) => {
       console.log(res);
     });
+  }
+
+  goToUpdate(id){
+    console.log(id);
   }
 
 }

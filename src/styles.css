@@ -2,7 +2,7 @@
   border: 5px #eee solid;
 }
 .add-btn, .icon-search,.btn-search,.clear-serch{
-  color: white;
+  color: white !important;
   background-color: green;
   margin: 5px;
 }
@@ -28,10 +28,32 @@ tr.grid-row:hover{
 /* Forms style */
 .form-container{
 
-  background-color: #eee;
+  background-color: rgb(246, 238, 238);
   padding: 3%;
   border-radius: 10px;
+  width: 35%;
+  align-content: center;
+  margin: auto;
+  padding: 10px;
+  border: 10px solid #eee;
 }
 .form-container input.form-control{
-  width: 30%;
+  width: 80%;
+}
+.form-container .add-btns{
+  display: flex;
+  justify-content: end;
+}
+.form-container .add-btns button{
+  margin: 5px;
+  color: white;
+}
+.form-container .add-btns .save{
+  background-color: green;
+}
+.form-container .add-btns .clear{
+  background-color: red;
+}
+.form-container .add-btns .cancel{
+  background-color: blue;
 }

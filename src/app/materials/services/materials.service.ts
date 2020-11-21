@@ -43,7 +43,7 @@ addMaterial(material: IMaterial) {
 }
 
 updatePost(material: IMaterial) {
-  return this.httpClient.put(`${environment.API_URL}/put`, material).pipe(catchError(this.errorHandlerService.logError));
+  return this.httpClient.put(`${environment.API_URL}/material`, material).pipe(catchError(this.errorHandlerService.logError));
 }
 
 deleteMaterial(id){
