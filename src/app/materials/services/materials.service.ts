@@ -33,6 +33,7 @@ getMaterialByCode(matCode: number): Observable <IMaterial>{
   return this.httpClient.get<IMaterial>(`${environment.API_URL}/getmaterial/${matCode}`);
 }
 
+
 addMaterial(material: IMaterial) {
   const httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'

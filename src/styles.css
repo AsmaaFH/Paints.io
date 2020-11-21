@@ -15,10 +15,6 @@ tr.grid-row:hover{
   display: flex;
   background-color: #F4F4F4;
 }
-input.form-control{
-  width: 30%;
-  margin: 1%;
-}
 
 .clear-serch{
   background-color: crimson;
@@ -27,4 +23,15 @@ input.form-control{
 .k-grid-header-wrap{
   background-color: #1977B3;
   color: white;
+}
+
+/* Forms style */
+.form-container{
+
+  background-color: #eee;
+  padding: 3%;
+  border-radius: 10px;
+}
+.form-container input.form-control{
+  width: 30%;
 }

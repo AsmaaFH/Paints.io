@@ -19,7 +19,7 @@ import { HeaderComponent } from './Shared/header/header.component';
     NewMaterialComponent,
     SidebarComponent,
     HeaderComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

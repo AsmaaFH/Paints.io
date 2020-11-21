@@ -1,9 +1,9 @@
 <app-sidebar></app-sidebar>
 <app-header></app-header>
 <div class="main-content">
-  <a class="btn add-btn" routerLink="/Materials/Add" role="button">Add</a>
-  <a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
+  <a class="btn add-btn" routerLink= "/Material" role="button">Add</a>
 
+  <a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
   <div class="collapse multi-collapse" id="filterCollapse">
     <div class="filter-group pt-2">
       <input
@@ -53,8 +53,8 @@
     </kendo-grid-column>
     <kendo-grid-column field="Action" width="120">
       <ng-template kendoGridCellTemplate>
-          <button kendoButton class="btn"><i class="far fa-edit"></i></button>
-          <button kendoButton class="btn"><i class="far fa-trash-alt"></i></button>
+          <a kendoButton routerLink= "/Material" class="btn"><i class="far fa-edit"></i></a>
+          <a kendoButton class="btn"><i class="far fa-trash-alt"></i></a>
       </ng-template>
   </kendo-grid-column>
 

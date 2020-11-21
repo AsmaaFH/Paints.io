@@ -1,5 +1,7 @@
+import { MaterialsService } from './../../services/materials.service';
 import { Component, OnInit } from '@angular/core';
 import { IMaterial } from '../../models/imaterial';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-material',
@@ -8,7 +10,7 @@ import { IMaterial } from '../../models/imaterial';
 })
 export class NewMaterialComponent implements OnInit {
   mat: IMaterial;
-  constructor() { }
+  constructor(private materialService: MaterialsService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,11 +18,11 @@ export class NewMaterialComponent implements OnInit {
 
   addMaterial(){
     // console.log(this.mat);
-    /*this.materialService.addMaterial(this.mat)
+    this.materialService.addMaterial(this.mat)
     .subscribe(
-      res => {this.router.navigateByUrl('/Materials/Material'); },
+      res => {this.router.navigateByUrl('/Materials'); },
       err => {console.log(err); }
-    );*/
+    );
   }
 
 }
