@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+.main-content{
+  border: 5px #eee solid;
+}
+.add-btn, .icon-search,.btn-search,.clear-serch{
+  color: white;
+  background-color: green;
+  margin: 5px;
+}
+
+tr.grid-row:hover{
+  background-color: rgb(214, 210, 210) !important;
+}
+
+.filter-group{
+  display: flex;
+  background-color: #F4F4F4;
+}
+input.form-control{
+  width: 30%;
+  margin: 1%;
+}
+
+.clear-serch{
+  background-color: crimson;
+}
+
+.k-grid-header-wrap{
+  background-color: #1977B3;
+  color: white;
+}

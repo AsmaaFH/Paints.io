@@ -1,0 +1,69 @@
+
+  <!--<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+                 (closed)="events.push('close!')">
+                 <div class="border-right" id="sideMenu" class="sidenav">
+
+                  <div class="brand">
+                    <div style="margin: auto;"><img [src]="factory.img" class="img-fluid"></div>
+                    <div class="brandName">Paints</div>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li><a routerLink="/Home" routerLinkActive="active" ><i class="fas fa-home"></i> Home</a></li>
+                    <li><a routerLink="/Home" routerLinkActive="active"><i class="fas fa-cog"></i>Settings</a></li>
+                    <li> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Favourites</a>
+                      <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                      </ul>
+                    </li>
+
+                  </ul>
+                </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <p><button class="btn" mat-button (click)="sidenav.toggle()"><i class="fas fa-bars"></i></button></p>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+-->
+
+<div class="border-right" id="sideMenu" class="sidenav">
+
+  <div class="brand">
+    <div style="margin: auto;"><img [src]="factory.img" class="img-fluid"></div>
+    <div class="brandName">Paints</div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li><a routerLink="/Home" routerLinkActive="active" ><i class="fas fa-home"></i> Home</a></li>
+    <li><a routerLink="/Materials/All" routerLinkActive="active" ><i class="fas fa-home"></i> Materials</a></li>
+
+    <li><a routerLink="/Home" routerLinkActive="active"><i class="fas fa-cog"></i>Settings</a></li>
+    <li> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Favourites</a>
+      <ul class="collapse list-unstyled" id="homeSubmenu">
+        <li>
+            <a href="#">Link 1</a>
+        </li>
+        <li>
+            <a href="#">Link 2</a>
+        </li>
+        <li>
+            <a href="#">Link 3</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
+

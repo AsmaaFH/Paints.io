@@ -1,0 +1,63 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div class="main-content">
+  <a class="btn add-btn" routerLink="/Materials/Add" role="button">Add</a>
+  <a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
+
+  <div class="collapse multi-collapse" id="filterCollapse">
+    <div class="filter-group pt-2">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="filter by name"
+      />
+      <input
+      class="form-control"
+      type="text"
+      placeholder="filter by code"
+      />
+    </div>
+    <div class="filter-group pb-2">
+      <button class="btn btn-search">search</button>
+      <button class="btn clear-serch">clear</button>
+    </div>
+  </div>
+
+  <kendo-grid
+      [data]="gridView"
+      [resizable]="true"
+      [pageable]="true"
+      [pageSize]="pageSize"
+      [skip]="skip"
+      [height]="600"
+      [sortable]="true"
+      [sort]="sort"
+      (sortChange)="sortChange($event)"
+      (pageChange)="pageChange($event)"
+
+    >
+    <kendo-grid-column field="ID" title="ID" width="80">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+          {{rowIndex+1}}
+    </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="code" title="Material Code" width="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="name" title="Material Name" width="200" >
+    </kendo-grid-column>
+    <kendo-grid-column field="quantity" title="Quantity" width="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="price_per_kilo" title="Price (1kilo)" width="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="min_value" title="Min Value" width="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="Action" width="120">
+      <ng-template kendoGridCellTemplate>
+          <button kendoButton class="btn"><i class="far fa-edit"></i></button>
+          <button kendoButton class="btn"><i class="far fa-trash-alt"></i></button>
+      </ng-template>
+  </kendo-grid-column>
+
+  </kendo-grid>
+</div>
+

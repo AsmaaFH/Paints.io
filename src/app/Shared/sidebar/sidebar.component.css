@@ -1,0 +1,54 @@
+
+
+i.fa-times{
+  color: white;
+  cursor: pointer;
+}
+img{
+  max-width: 100%;
+}
+.brand{
+  width: 100%;
+  background-color: white;
+}
+.brandName{
+  font-size: 45px;
+  text-align: center;
+  color: #01bfbb;
+  padding: 0% 20% 10%;
+  font-weight: 600;
+}
+
+#sideMenu{
+  background-color: #042331;
+  height: 100vh;
+  width: 250px;
+  background-image: linear-gradient(to right top, #808a99, #5ba4bc, #01bfbb, #50d48f, #b4de4c);
+}
+
+.sidenav{
+  float: left;
+}
+i{
+  padding: 3px;
+}
+a:hover{
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-left: #eee 2px solid;
+}
+
+ul li a{
+  display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: #fff;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid rgba(255,255,255,.1);
+    transition: .4s;
+}
