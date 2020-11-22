@@ -1,4 +1,8 @@
+outlet-router{
+  padding-left: 250px;
+}
 .main-content{
+  padding-left:250px;
   border: 5px #eee solid;
 }
 .add-btn, .icon-search,.btn-search,.clear-serch{
@@ -27,22 +31,58 @@ tr.grid-row:hover{
 
 /* Forms style */
 .form-container{
-
-  background-color: rgb(246, 238, 238);
+  background-color: #EDEDED;
+  margin-top: 44px !important;
+  width: 100%;
+  height: 55vh;
   padding: 3%;
   border-radius: 10px;
-  width: 35%;
   align-content: center;
   margin: auto;
   padding: 10px;
   border: 10px solid #eee;
 }
-.form-container input.form-control{
-  width: 80%;
+.form-container form .main{
+  padding-left: 250px;
+  width: 56%;
+}
+.form-container form .details-contain{
+  border: 1px dashed #bdbbbb;
+  border-radius: 10px;
+  padding:10px;
+  margin-bottom: 15px;
+}
+.form-container .formGgroup{
+  display: flex;
+  margin-bottom: 0px;
+}
+.form-container input , .form-container textarea{
+  border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    width: 290px;
+}
+
+.form-container input.inpt1{
+  margin-left: 105px;
+}
+.form-container input.inpt2{
+  margin-left: 100px;
+}
+.form-container input.inpt3{
+  margin-left: 84px;
+}
+.form-container input.inpt4{
+  margin-left: 109px;
+}
+.form-container input.inpt5{
+  margin-left: 76px;
+}
+.form-container textarea.inpt6{
+  /* margin-left: 154px; */
 }
 .form-container .add-btns{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .form-container .add-btns button{
   margin: 5px;
