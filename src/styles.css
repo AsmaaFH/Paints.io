@@ -13,16 +13,15 @@ button:focus, a:focus, input:focus{
   box-shadow: none !important;
 }
 
-.formGroup .form-control{
-  width:200px;
-}
+
 /* table */
+mat-table{
+  border: 3px solid #eee;
+}
 .mat-header-row{
   background-color: rgb(116, 116, 243);
 }
-mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
-  padding-left: 0px !important;
-}
+
 .mat-header-cell,.mat-cell, .mat-footer-cell{
   justify-content: center;
 }
@@ -95,11 +94,14 @@ tr.grid-row:hover{
 /* Forms style */
 .form-container{
   background-color: #F8F8F7;
-  height: 90vh;
   border-radius: 10px;
+  border: 1px solid #eee;
+  position: relative;
+  padding-bottom: 5%;
 }
-.form-container form .main{
-  width: 56%;
+.form-container h2, .form-container form .main{
+  width: 40%;
+  margin: auto;
 }
 .form-container .details-contain{
   border: 1px dashed #bdbbbb;
@@ -115,9 +117,14 @@ tr.grid-row:hover{
 .form-container label{
   font-size: 14px;
   font-weight: 500;
+  margin: 0 0.1rem;
+}
+.form-container span{
+  color: red;
 }
 .form-container input{
   height: 28px;
+  width: 230px;
 }
 .form-container input, .form-container textarea{
   padding: 5px;
@@ -130,13 +137,13 @@ tr.grid-row:hover{
 
 }
 .form-container .labl3{
-  padding-left: 44px;
+  padding-left: 38px;
 }
 .form-container .labl4{
   padding-left: 7px;
 }
 .form-container .labl5{
-  padding-left: 37px;
+  padding-left: 33px;
 }
 .form-container ul{
   list-style: none;
@@ -147,13 +154,9 @@ tr.grid-row:hover{
 .cdk-overlay-pane{
   width: 400px;
 }
-.form-container label{
-  margin: 0 0.5rem;
-}
 .form-container input , .form-container textarea{
   border: 1px solid #D8D8D8;
     border-radius: 5px;
-    width: 200px;
 }
 
 .mat-form-field-wrapper{
@@ -181,13 +184,28 @@ tr.grid-row:hover{
   margin: 5px;
 }
 .save{
-  background-color: green;
+  background-color: #01bfbb;
+}
+.save:hover{
+  background-color: white;
+  color: #01bfbb;
+  border: 1px solid #01bfbb;
 }
 .clear{
   background-color: red;
 }
+.clear:hover{
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
 .back{
   background-color: blue;
+}
+.back:hover{
+  background-color: white;
+  color: blue;
+  border: 1px solid blue;
 }
 
 html, body { height: 100%; }

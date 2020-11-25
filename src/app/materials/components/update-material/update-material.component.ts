@@ -41,11 +41,11 @@ export class UpdateMaterialComponent implements OnInit {
     console.log(this.EditForm.value);
     this.materialToEdit = this.EditForm.value;
     this.router.navigateByUrl('/Materials');
-
   }
 
   clearForm(){
-    this.materialToEdit = {code: this.activateRoute.params, name:  '' , quantity: '' , price_per_kilo: '' , min_value: '' };
+    this.materialToEdit = {code: this.activateRoute.params.value.code, name:  '' , quantity: '' , price_per_kilo: '' , min_value: '' };
+    console.log(this.activateRoute.params.value.code);
   }
 
 }

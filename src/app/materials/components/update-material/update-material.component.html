@@ -9,24 +9,24 @@
       <div class="main">
         <div class="details-contain">
           <div class="formGroup">
-            <label  class="labl1">Material Code</label>
-            <input type="text" formControlName="code" required minlength="3" class="inpt1" [ngModel]="materialToEdit.code">
+            <label class="labl1">Material Code</label>
+            <input disabled type="text" formControlName="code" required minlength="3" class="inpt1" [ngModel]="materialToEdit.code">
           </div>
           <!-- <small [hidden]="addFrm.controls['code'].valid || addFrm.controls['code'].untouched" id="helpId" class="text-muted">Required</small> -->
           <div class="formGroup">
-            <label  class="labl2">Material Name</label>
-            <input (keyup)="EditMaterial()" type="text" formControlName="name" class="inpt2" [ngModel]="materialToEdit.name" [ngModel]="materialToEdit.name">
+            <label  class="labl2">Material Name <span>*</span></label>
+            <input type="text" formControlName="name" class="inpt2" [ngModel]="materialToEdit.name" [ngModel]="materialToEdit.name">
           </div>
           <div class="formGroup">
-            <label class="labl3">Quantiry</label>
+            <label class="labl3">Quantiry <span>*</span></label>
             <input type="text" formControlName="quantity" class="inpt2" [ngModel]="materialToEdit.quantity">
           </div>
           <div class="formGroup">
-            <label class="labl4" for="matPrice">Material Price</label>
+            <label class="labl4" for="matPrice">Material Price <span>*</span></label>
             <input type="text" formControlName="price_per_kilo" class="inpt2" [ngModel]="materialToEdit.price_per_kilo">
           </div>
           <div class="formGroup">
-            <label  class="labl5">Min value</label>
+            <label  class="labl5">Min value <span>*</span></label>
             <input type="text" formControlName="min_value" class="inpt2" [ngModel]="materialToEdit.min_value">
           </div>
         </div>
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class=".action-btns">
+      <div class="action-btns">
         <button class="btn save" type="submit" (click)="EditMaterial()" >Save</button>
         <button class="btn clear" (click)="clearForm()">Clear</button>
         <button class="btn back" routerLink="/Materials">Cancel</button>
