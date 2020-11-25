@@ -8,7 +8,6 @@ import { MaterialsListComponent } from './materials/components/materials-list/ma
 import { NewMaterialComponent } from './materials/components/new-material/new-material.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SidebarComponent } from './Shared/sidebar/sidebar.component';
 import { HeaderComponent } from './Shared/header/header.component';
 import { FilterPipe } from './materials/pipes/filter.pipe';
@@ -31,12 +30,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-// import { MatNativeDateModule } from '@angular/material/nativeDate';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
-// import { MatRippleModule } from '@angular/material/ripple';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
@@ -49,8 +46,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import { ConfirmComponent } from './materials/components/confirm/confirm.component';
 import { MessagesComponent } from './materials/components/messages/messages.component';
+import { LoginComponent } from './Users/components/login/login.component';
+import { SearchPipe } from './materials/pipes/search.pipe';
+import { ConfirmDialogComponent } from './ConfirmationDialog/confirm-dialog/confirm-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,8 +59,10 @@ import { MessagesComponent } from './materials/components/messages/messages.comp
     HeaderComponent,
     FilterPipe,
     UpdateMaterialComponent,
-    ConfirmComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoginComponent,
+    SearchPipe,
+    ConfirmDialogComponent
     ],
   imports: [
     BrowserModule,
@@ -88,12 +89,10 @@ import { MessagesComponent } from './materials/components/messages/messages.comp
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    // MatNativeDateModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    // MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,

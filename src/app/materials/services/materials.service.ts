@@ -1,10 +1,14 @@
+import { IMaterial } from './../models/imaterial';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {  IMaterial } from '../models/imaterial';
 import { environment } from 'src/environments/environment';
 import { ErrorHandlerService } from 'src/app/Shared/error-handler.service';
+import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -24,41 +28,81 @@ this.materials = [
     {name: 'material8', code: 'g9292', price_per_kilo: 8232, quantity: 64532, min_value: 7334}
   ];
  }
+// ----------------- CRUD -------------------
 
- getAllMaterials(): Observable<IMaterial[]>{
-  return this.httpClient.get<IMaterial[]>(`${environment.API_URL}/getmaterials`);
+  // --------------GET ALL RECORDS ------------
+  // public getAllRecords(): Observable<any> {
+  //   return this.httpClient.get<IMaterial>(environment.API_URL + '/get').pipe(
+  //     catchError((error: any) => {
+  //          console.error(error);
+  //          return of();
+  //        }),
+  //   );
+  // }
+
+  // ------------- For Dummy Data --------------
+
+  public getAllRecords(){
+    return this.materials;
+  }
+
+  // ----------- CREATE new record -----------
+
+  public addRecord(recordData): Observable<any> {
+    return this.httpClient.post(environment.API_URL, recordData).pipe(
+      catchError((error: any) => {
+           console.error(error);
+           return of();
+         }),
+    );
+  }
+
+
+  // ---------- EDIT AND UPDATE --------------
+
+  // ---- FETCH record detail for editing or viewing. ----
+
+  public getRecordById(recordId): Observable<any> {
+    return this.httpClient.get<any>(`${environment.API_URL}/${recordId}`).pipe(
+      catchError((error: any) => {
+           console.error(error);
+           return of();
+         }),
+    );
+  }
+
+
+  // ---- UPDATES an existing record ----
+
+  public updateRecord(recordUpdate): Observable<any> {
+    return this.httpClient.put(environment.API_URL, recordUpdate, httpOptions).pipe(
+      catchError((error: any) => {
+           console.error(error);
+           return of();
+         }),
+    );
+  }
+
+
+  public deleteRecord(code): Observable<any> {
+    return this.httpClient.delete(environment.API_URL + '/' + code);
+  }
+
+  // search by name
+  public nameSearch(terms) {
+    return terms.pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(term => {
+          const url = `${environment.API_URL}/materials/?name=${term}`;
+          return this.httpClient.get(url);
+      }),
+      catchError((error: any) => {
+           console.error(error);
+           return of();
+      }),
+    );
+  }
+
 }
 
-getMaterialByCode(matCode: number): Observable <IMaterial>{
-  return this.httpClient.get<IMaterial>(`${environment.API_URL}/getmaterial/${matCode}`);
-}
-
-
-addMaterial(material: IMaterial) {
-  const httpOptions = {headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-    // ,'Authorization': 'my-auth-token'
-      })};
-  return this.httpClient.post(`${environment.API_URL}/post`, material);
-}
-
-updatePost(material: IMaterial) {
-  return this.httpClient.put(`${environment.API_URL}/material`, material).pipe(catchError(this.errorHandlerService.logError));
-}
-
-deleteMaterial(id){
-  return this.httpClient.delete(environment.API_URL + '/' + id);
-}
-
-getAllMaterialsDummy(){
-  return this.materials;
-}
-getProductByCodeDummy(mCode: number): IMaterial{
-  return this.materials.find((mat) => mat.code === mCode);
-}
-
-getFakeApi(){
-  return this.httpClient.get(`${environment.API_URL}/get`);
-}
-
-}

@@ -1,0 +1,88 @@
+
+.login-bg{
+  position: relative;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url('../../../../assets/images/painter-1246619_1920.jpg');
+  background-size: cover;
+  padding: 10%;
+  height: 100vh;
+  opacity: 0.6;
+}
+
+.login{
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  padding:0.5rem 3.5rem !important;
+  align-content: center;
+  margin: auto;
+  padding: 10px;
+  border: 10px solid #eee;
+}
+.login-img{
+  width: 200px;
+  margin: auto;
+}
+
+button{
+  border: 1px black solid;
+  color: white;
+  font-size: 20px;
+  width: 50%;
+  margin: auto;
+  margin-top: 12%;
+  background-color: #01bfbb ;
+  outline: none;
+  display: block;
+}
+
+.form-control{
+  background-color: white;
+}
+
+.error{
+  color: red;
+}
+
+@media only screen and (max-width: 1000px){
+  .login{
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .login-bg{
+    padding: 30%;
+    background-color: white !important;
+  }
+  .login{
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 600px){
+  .login{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 400px){
+  .login{
+    width: 90%;
+    padding:0.5rem 1.5rem !important;
+  }
+
+}
+
+@media only screen and (max-width: 300px){
+  .login{
+    width: 100%;
+  }
+  label{
+    font-size: 15px;
+  }
+  button{
+    font-size: 15px;
+  }
+}

@@ -1,85 +1,84 @@
 <app-sidebar></app-sidebar>
 <app-header></app-header>
+<div class="main-content">
+  <div class="d-flex justify-content-end p-1">
+    <a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
+    <a class="btn add-btn" routerLink="/Material" role="button">Add Material</a>
+  </div>
+  <div class="p-2 collapse multi-collapse" id="filterCollapse">
+    <div class="filter-group p-2">
+      <input
+        class="m-1 form-control"
+        type="text"
+        placeholder="filter by name"
+        [(ngModel)]="textSearch"
 
-<a class="btn add-btn" (click)="addRecord()" role="button">Add</a>
-
-<a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
-<div class="p-2 collapse multi-collapse" id="filterCollapse">
-  <div class="filter-group p-2">
-    <input
+      />
+      <input
       class="m-1 form-control"
       type="text"
-      placeholder="filter by name"
-      (keyup)="searchTerm$.next($event.target.value)"
-    />
-    <input
-    class="m-1 form-control"
-    type="text"
-    placeholder="filter by code"
-    />
+      placeholder="filter by code"
+      />
+    </div>
+    <div class="filter-group-btns pl-3 pb-2">
+      <button class="btn btn-search" (click)= "Search()">search</button>
+      <button class="btn clear-serch">clear</button>
+    </div>
   </div>
-  <div class="filter-group pl-3 pb-2">
-    <button class="btn btn-search">search</button>
-    <button class="btn clear-serch">clear</button>
-  </div>
-</div>
+  <section class='tableSection'>
+      <mat-table class="matTable" [dataSource]="dataSource">
 
-
-<section class='tableSection'>
-
-    <mat-table class="matTable" [dataSource]="dataSource">
-
-    <ng-container matColumnDef="select">
-        <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="selectMember(row.code)"></mat-checkbox>
-        </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Code">
-      <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
-    </ng-container>
-
-
-    <ng-container matColumnDef="Name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell  *matCellDef="let row">  {{row.name}} </mat-cell>
-    </ng-container>
-
-
-      <ng-container matColumnDef="Quantity">
-          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-          <mat-cell *matCellDef="let row">  {{row.quantity}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="price_per_kilo">
-          <mat-header-cell *matHeaderCellDef> price_per_kilo </mat-header-cell>
-          <mat-cell *matCellDef="let row">  {{row.price_per_kilo}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Min Value">
-        <mat-header-cell *matHeaderCellDef> Min Value </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.min_value}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="options">
-          <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+      <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
           <mat-cell *matCellDef="let row">
-            <button (click)="deleteRecord(row.code)" class="btn"><i class="far fa-trash-alt"></i></button>
-            <button (click)="editRecord(row)" class="btn"><i class="far fa-edit"></i></button>
+              <mat-checkbox ></mat-checkbox>
           </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Code">
+        <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell  *matCellDef="let row">  {{row.name}} </mat-cell>
+      </ng-container>
+
+
+        <ng-container matColumnDef="Quantity">
+            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+            <mat-cell *matCellDef="let row">  {{row.quantity}} </mat-cell>
         </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <ng-container matColumnDef="price_per_kilo">
+            <mat-header-cell *matHeaderCellDef> price_per_kilo </mat-header-cell>
+            <mat-cell *matCellDef="let row">  {{row.price_per_kilo}} </mat-cell>
+        </ng-container>
 
-    </mat-table>
+        <ng-container matColumnDef="Min Value">
+          <mat-header-cell *matHeaderCellDef> Min Value </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.min_value}} </mat-cell>
+        </ng-container>
 
-    <mat-paginator #paginator
-                  [pageIndex]="0"
-                  [pageSize]="5"
-                  [pageSizeOptions]="[5, 10, 25, 100]">
-    </mat-paginator>
-</section>
+        <ng-container matColumnDef="options">
+            <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button class="btn" (click)="deleteMaterial(row)"><i class="far fa-trash-alt"></i></button>
+              <button [routerLink]="['/Material/', row.code]" class="btn"><i class="far fa-edit"></i></button>
+            </mat-cell>
+          </ng-container>
 
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+
+      <mat-paginator #paginator
+                    [pageIndex]="0"
+                    [pageSize]="5"
+                    [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+  </section>
+</div>

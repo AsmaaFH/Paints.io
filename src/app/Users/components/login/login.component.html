@@ -1,0 +1,30 @@
+
+<div class="login-bg">
+</div>
+
+<div class="login">
+  <div class="login-img">
+    <img [src]="factory.img" class="img-fluid" alt="">
+  </div>
+  <form [formGroup]="loginFrm" (ngSubmit)="Login()">
+    <div class="form-group">
+      <input type="text" formControlName="name" class="" [class.is-invalid]="loginFrm.controls['name'].invalid && loginFrm.controls['name'].touched" class="form-control" [class.is-valid]="loginFrm.controls['name'].valid" [(ngModel)]="userName" placeholder="User name">
+      <div class="error" *ngIf="loginFrm.get('name').hasError('required') && loginFrm.get('name').touched">This Field is required !</div>
+      <div class="error" *ngIf="loginFrm.get('name').hasError('minlength') && loginFrm.get('name').touched && loginFrm.get('name').dirty">User Name must be at least 3 characters !</div>
+
+    </div>
+
+    <div class="form-group">
+      <input type="password" formControlName="password" class="form-control" [(ngModel)]="password" [class.is-invalid]="loginFrm.controls['Password'].invalid && loginFrm.controls['Password'].touched" [class.is-valid]="loginFrm.controls['Password'].valid" placeholder="Password">
+      <div class="error" *ngIf="loginFrm.get('password').hasError('required') && loginFrm.get('password').touched">This Field is required !</div>
+      <div class="error" *ngIf="loginFrm.get('password').hasError('minlength') && loginFrm.get('password').touched && loginFrm.get('password').dirty">Password must be at least 8 characters !</div>
+
+    </div>
+
+    <button [disabled]="loginFrm.invalid" type="submit" class="btn">Login</button>
+  </form>
+
+  <!--{{loginFrm.value | json}}-->
+
+  <!--<button type="button" class="btn" (click)="Logout()">Logout</button>-->
+  </div>
