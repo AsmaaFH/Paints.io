@@ -55,6 +55,32 @@
 <br>
 {{matName.className}} -->
 
+<!-- Using Angular material -->
 
 
- -->
+
+
+<section flex-container fxLayout="column" fxLayoutAlign="space-around center">
+
+  <div mat-dialog-title>
+      <h2>Edit Material</h2>
+  </div>
+
+  <div mat-dialog-content>
+
+   <app-add-edit-form></app-add-edit-form>
+
+    <div fxLayout="row" class="action-btns">
+
+      <button class="btn save"
+              (click)="update(addEditForm.addEditMaterialForm.value)">
+                Save Edits</button>
+      <button class="btn clear" (click)="dialogRef.close(true)">Cancel Edit</button>
+      <button matDialogClose class="btn back" (click)="dialogRef.close(true)">Close</button>
+
+    </div>
+
+  </div>
+
+</section>
+

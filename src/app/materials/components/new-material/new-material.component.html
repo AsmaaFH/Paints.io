@@ -1,44 +1,50 @@
-<app-sidebar></app-sidebar>
+<!-- <app-sidebar></app-sidebar>
 <app-header></app-header>
-<div class="form-container">
+<div class="form-container main-content">
   <form  #frm='ngForm' (ngSubmit)="addMaterial()">
-    <div class="form-group">
-      <label for="matCode">Code</label>
-      <input type="text" #matCode="ngModel" [class.is-invalid]="matCode.invalid &&
-      matCode.touched" [class.is-valid]="matCode.valid"[(ngModel)]="mat.code"
-       required minlength="3" name="Name" id="codeName" class="form-control"
-        placeholder="" aria-describedby="helpId">
-      <small [hidden]="matCode.valid || matCode.untouched" id="helpId" class="text-muted">Code must be more than 3 letters</small>
-    </div>
-    <div class="form-group">
-      <label for="matName">Name</label>
-      <input type="text" #matName="ngModel" [class.is-invalid]="matName.invalid &&
-      matName.touched" [class.is-valid]="matName.valid"[(ngModel)]="mat.name"
-       required minlength="3" name="Name" id="prdName" class="form-control"
-        placeholder="" aria-describedby="helpId">
-      <small [hidden]="matName.valid || matName.untouched" id="helpId" class="text-muted">Name must be more than 3 letters</small>
-    </div>
-    <div class="form-group">
-      <label for="matQuantity">Quantity</label>
-      <input type="text" [(ngModel)]="mat.quantity" required min="1" name="Quantity" id="matQuantity" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Help text</small>
-    </div>
-    <div class="form-group">
-      <label for="matPrice">Price</label>
-      <input type="text" [(ngModel)]="mat.price_per_kilo" name="Price" required min="1" id="matPrice" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Help text</small>
-    </div>
+    <div class="main">
+      <div class="details-contain">
+        <div class="formGroup">
+          <label for="matCode">Material Code</label>
+          <input type="text" #matCode="ngModel" [class.is-invalid]="matCode.invalid &&
+          matCode.touched" [class.is-valid]="matCode.valid"[(ngModel)]="mat.code"
+          required minlength="3" name="Name" id="codeName" class="inpt1"
+            placeholder="" aria-describedby="helpId">
+        </div>
+        <small [hidden]="matCode.valid || matCode.untouched" id="helpId" class="text-muted">Code must be more than 3 letters</small>
+        <div class="formGroup">
+          <label for="matName">Material Name</label>
+          <input type="text" #matName="ngModel" [class.is-invalid]="matName.invalid &&
+          matName.touched" [class.is-valid]="matName.valid"[(ngModel)]="mat.name"
+          required minlength="3" name="Name" id="prdName" class="inpt2"
+            placeholder="" aria-describedby="helpId">
+        </div>
+        <small [hidden]="matName.valid || matName.untouched" id="helpId" class="text-muted">Name must be more than 3 letters</small>
 
-    <div class="form-group">
-      <label for="matPrice">Min value</label>
-      <input type="text" [(ngModel)]="mat.min_value" name="Price" required min="1" id="matMinValue" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Help text</small>
-    </div>
+        <div class="formGroup">
+          <label for="matQuantity">Material Quantity</label>
+          <input type="text" [(ngModel)]="mat.quantity" required min="1" name="Quantity" id="matQuantity" class="inpt3" placeholder="" aria-describedby="helpId">
+        </div>
+        <small id="helpId" class="text-muted">Help text</small>
 
-    <div class="form-group">
-      <label for="notice">Notices</label>
-      <input type="text"  class="form-control">
+        <div class="formGroup">
+          <label for="matPrice">Material Price</label>
+          <input type="text" [(ngModel)]="mat.price_per_kilo" name="Price" required min="1" id="matPrice" class="inpt4" placeholder="" aria-describedby="helpId">
+        </div>
+        <small id="helpId" class="text-muted">Help text</small>
 
+        <div class="formGroup">
+          <label for="matPrice">Material Min value</label>
+          <input type="text" [(ngModel)]="mat.min_value" name="Price" required min="1" id="matMinValue" class="inpt5" placeholder="" aria-describedby="helpId">
+        </div>
+        <small id="helpId" class="text-muted">Help text</small>
+      </div>
+      <div class="details-contain">
+        <div class="formGroup">
+          <label for="notice">Notices</label><br>
+          <textarea rows="3"  class="inpt6"></textarea>
+        </div>
+      </div>
     </div>
     <div class="add-btns">
       <button class="btn save" type="submit" [disabled]="frm.invalid">Save</button>
@@ -49,7 +55,6 @@
   </form>
 </div>
 
-<hr>
 <!-- {{prd | json}}
 <br>
 {{matName.className}} -->
@@ -57,3 +62,29 @@
 
 
 
+
+<h2 mat-dialog-title fxLayoutAlign="space-around center">Add Material</h2>
+
+<section mat-dialog-content>
+
+  <app-add-edit-form></app-add-edit-form>
+
+
+  <div fxLayout="row" class="action-btns">
+
+    <button class="save" mat-raised-button (click)="save(newMaterialForm)">Save</button>
+    <button class="clear" mat-raised-button (click)="reset()">Reset Form</button>
+    <button class="btn back" mat-dialog-close md-raised-button (click)="dialogRef.close()">Close</button>
+
+  </div>
+
+  <br><br>
+
+</section>
+
+<br><br>
+
+<div mat-dialog-actions fxLayoutAlign="space-around center">
+
+
+</div>

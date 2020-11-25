@@ -1,4 +1,4 @@
-export interface IMaterial {
+export class IMaterial {
   code;
   name;
   price_per_kilo;
