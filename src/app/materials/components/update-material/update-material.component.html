@@ -2,14 +2,14 @@
 <app-header></app-header>
 
 
-<div class="main-content">
+<div id="main-content">
   <div class="form-container">
-    <h2 class="p-3 mt-5">Edit Material</h2>
+    <h3 class="p-3 mt-5">Edit Material</h3>
     <form [formGroup]="EditForm" class="p-2">
       <div class="main">
         <div class="details-contain">
           <div class="formGroup">
-            <label class="labl1">Material Code</label>
+            <label class="labl1 lablToDisabledInpt">Material Code</label>
             <input disabled type="text" formControlName="code" required minlength="3" class="inpt1" [ngModel]="materialToEdit.code">
           </div>
           <!-- <small [hidden]="addFrm.controls['code'].valid || addFrm.controls['code'].untouched" id="helpId" class="text-muted">Required</small> -->

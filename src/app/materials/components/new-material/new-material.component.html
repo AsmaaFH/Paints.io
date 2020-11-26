@@ -2,30 +2,29 @@
 <app-header></app-header>
 
 
-<div class="form-container main-content">
-  <h2 class="p-3 mt-5">Add Material</h2>
+<div class="form-container" id="main-content">
+  <h3 class="p-3 mt-5">Add Material</h3>
   <form [formGroup]="addFrm" (ngSubmit)="addMaterial()" class="p-2">
     <div class="main">
       <div class="details-contain">
         <div class="formGroup">
-          <label  class="labl1">Material Code</label>
+          <label  class="labl1">Material Code <span>*</span></label>
           <input type="text" formControlName="code" class="inpt1" [(ngModel)]="material.code">
-          <small [hidden]="addFrm.controls['code'].valid || addFrm.controls['code'].untouched" class="text-muted">Required*</small>
         </div>
         <div class="formGroup">
-          <label  class="labl2">Material Name</label>
+          <label  class="labl2">Material Name <span>*</span></label>
           <input type="text" formControlName="name" class="inpt2" [(ngModel)]="material.name">
         </div>
         <div class="formGroup">
-          <label class="labl3">Quantiry</label>
+          <label class="labl3">Quantiry <span>*</span></label>
           <input type="text" formControlName="quantity" class="inpt2" [(ngModel)]="material.quantity">
         </div>
         <div class="formGroup">
-          <label class="labl4" for="matPrice">Material Price</label>
+          <label class="labl4" for="matPrice">Material Price <span>*</span></label>
           <input type="text" formControlName="price_per_kilo" class="inpt2"  [(ngModel)]="material.price_per_kilo">
         </div>
         <div class="formGroup">
-          <label  class="labl5">Min value</label>
+          <label  class="labl5">Min value <span>*</span></label>
           <input type="text" formControlName="min_value" class="inpt2"  [(ngModel)]="material.min_value">
         </div>
        </div>

@@ -1,4 +1,10 @@
-
+#closeSideBarBtn{
+  font-size: 26px;
+  cursor: pointer;
+  background-color: white;
+  width: 100%;
+  color: #5FA1B8;
+}
 
 i.fa-times{
   color: white;

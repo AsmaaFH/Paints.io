@@ -1,8 +1,9 @@
 <app-sidebar></app-sidebar>
 <app-header></app-header>
-<div class="main-content">
+<div id="main-content">
+  <i class="fas fa-bars" onclick="showSideBar()" id="toggleBtn"></i>
   <div class="d-flex justify-content-end p-1">
-    <a class="btn btn-search" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
+    <a class="btn btn-search" id="toggleBtn" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
     <a class="btn add-btn" routerLink="/Material" role="button">Add Material</a>
   </div>
   <div class="p-2 collapse multi-collapse" id="filterCollapse">

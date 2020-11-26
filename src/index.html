@@ -16,6 +16,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+  <script>
+    function showSideBar(){
+      document.getElementById("main-content").style.marginLeft = "250px";
+      document.getElementById("sideMenu").style.display="block";
+      document.getElementById("toggleBtn").style.display="none";
+    }
+    function hideSideBar(){
+      document.getElementById("main-content").style.marginLeft = "0px";
+      document.getElementById("sideMenu").style.display="none";
+      document.getElementById("toggleBtn").style.display="block";
+    }
+  </script>
   <app-root></app-root>
 </body>
 </html>
