@@ -30,7 +30,7 @@ export class UpdateMaterialComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(params => {
-      this.materialToEdit = this.materialsService.getAllRecords().find(mat => mat.code == params.code);
+      this.materialToEdit = this.materialsService.getAllRecords().find(mat => mat.code === params.code);
       console.log(this.materialToEdit);
       console.log(params.code);
     });
@@ -44,8 +44,8 @@ export class UpdateMaterialComponent implements OnInit {
   }
 
   clearForm(){
-    this.materialToEdit = {code: this.activateRoute.params.value.code, name:  '' , quantity: '' , price_per_kilo: '' , min_value: '' };
-    console.log(this.activateRoute.params.value.code);
+    this.materialToEdit = {code: this.materialToEdit.code, name:  '' , quantity: '' , price_per_kilo: '' , min_value: '' };
+    console.log(this.materialToEdit.code);
   }
 
 }

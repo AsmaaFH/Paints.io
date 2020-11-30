@@ -4,7 +4,7 @@
   <i class="fas fa-bars" onclick="showSideBar()" id="toggleBtn"></i>
   <div class="d-flex justify-content-end p-1">
     <a class="btn btn-search" id="toggleBtn" data-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fas fa-search"></i></a>
-    <a class="btn add-btn" routerLink="/Material" role="button">Add Material</a>
+    <a class="btn add-btn" routerLink="/Material" role="button">{{"Add_Material" | translate }}</a>
   </div>
   <div class="p-2 collapse multi-collapse" id="filterCollapse">
     <div class="filter-group p-2">
@@ -13,7 +13,7 @@
         type="text"
         placeholder="filter by name"
         [(ngModel)]="textSearch"
-
+        (keyup)="Search1()"
       />
       <input
       class="m-1 form-control"
@@ -30,20 +30,20 @@
       <mat-table class="matTable" [dataSource]="dataSource">
 
       <ng-container matColumnDef="select">
-          <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{"select" | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row">
               <mat-checkbox ></mat-checkbox>
           </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Code">
-        <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> {{"code" | translate}} </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
       </ng-container>
 
 
       <ng-container matColumnDef="Name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> {{"name" | translate}} </mat-header-cell>
         <mat-cell  *matCellDef="let row">  {{row.name}} </mat-cell>
       </ng-container>
 
@@ -54,17 +54,17 @@
         </ng-container>
 
         <ng-container matColumnDef="price_per_kilo">
-            <mat-header-cell *matHeaderCellDef> price_per_kilo </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{"price" | translate}}</mat-header-cell>
             <mat-cell *matCellDef="let row">  {{row.price_per_kilo}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Min Value">
-          <mat-header-cell *matHeaderCellDef> Min Value </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> {{"min_value" | translate}} </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.min_value}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="options">
-            <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> {{"action" | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let row">
               <button class="btn" (click)="deleteMaterial(row)"><i class="far fa-trash-alt"></i></button>
               <button [routerLink]="['/Material/', row.code]" class="btn"><i class="far fa-edit"></i></button>

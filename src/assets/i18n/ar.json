@@ -1,0 +1,18 @@
+{
+  "login" : "تسجيل الدخول",
+  "home" : "الرئيسية",
+  "Add_Material" : "إضافة مادة",
+  "edit Material" : "تعديل مادة",
+  "save" : "حفظ",
+  "cancel" : "رجوع",
+  "clear" : "مسح",
+  "delete" : "حذف",
+  "select" : "اختر",
+  "code" : "الكود",
+  "name" : "الإسم",
+  "quantity" : "الكميةالموجودة",
+  "price" : "سعر الكيلو",
+  "min_value" : "الحد الأدنى",
+  "action" : "action",
+  "notice" : "ملاحظات"
+}

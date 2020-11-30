@@ -4,43 +4,56 @@
 
 <div id="main-content">
   <div class="form-container">
-    <h3 class="p-3 mt-5">Edit Material</h3>
+    <h3 class="p-3 mt-5">{{"edit Material" | translate }}</h3>
     <form [formGroup]="EditForm" class="p-2">
       <div class="main">
         <div class="details-contain">
           <div class="formGroup">
-            <label class="labl1 lablToDisabledInpt">Material Code</label>
-            <input disabled type="text" formControlName="code" required minlength="3" class="inpt1" [ngModel]="materialToEdit.code">
+            <label class="labl1 lablToDisabledInpt">{{"code" | translate}}</label>
+            <input disabled type="text" formControlName="code" minlength="3" class="inpt1" [ngModel]="materialToEdit.code">
           </div>
-          <!-- <small [hidden]="addFrm.controls['code'].valid || addFrm.controls['code'].untouched" id="helpId" class="text-muted">Required</small> -->
+          <small [hidden]="EditForm.controls['code'].valid || EditForm.controls['code'].untouched" id="helpId" class="text-muted">Required</small>
           <div class="formGroup">
-            <label  class="labl2">Material Name <span>*</span></label>
-            <input type="text" formControlName="name" class="inpt2" [ngModel]="materialToEdit.name" [ngModel]="materialToEdit.name">
+            <label  class="labl2">{{"name" | translate}}<span>*</span></label>
+            <input type="text" formControlName="name" #name class="inpt2" required [ngModel]="materialToEdit.name" [ngModel]="materialToEdit.name"><br>
+            <mat-error *ngIf="!EditForm.controls['name'].valid && EditForm.controls['name'].touched">
+              Name is required
+            </mat-error>
+          </div>
+
+          <div class="formGroup">
+            <label class="labl3">{{"quantity" | translate}} <span>*</span></label>
+            <input required type="text" formControlName="quantity" class="inpt2" [ngModel]="materialToEdit.quantity">
+            <mat-error *ngIf="!EditForm.controls['quantity'].valid && EditForm.controls['quantity'].touched">
+              Quantity is required
+            </mat-error>
           </div>
           <div class="formGroup">
-            <label class="labl3">Quantiry <span>*</span></label>
-            <input type="text" formControlName="quantity" class="inpt2" [ngModel]="materialToEdit.quantity">
+            <label class="labl4" for="matPrice">{{"price" | translate}}<span>*</span></label>
+            <input required type="text" formControlName="price_per_kilo" class="inpt2" [ngModel]="materialToEdit.price_per_kilo">
+            <mat-error *ngIf="!EditForm.controls['price_per_kilo'].valid && EditForm.controls['price_per_kilo'].touched">
+              Quantity is required
+            </mat-error>
           </div>
           <div class="formGroup">
-            <label class="labl4" for="matPrice">Material Price <span>*</span></label>
-            <input type="text" formControlName="price_per_kilo" class="inpt2" [ngModel]="materialToEdit.price_per_kilo">
-          </div>
-          <div class="formGroup">
-            <label  class="labl5">Min value <span>*</span></label>
-            <input type="text" formControlName="min_value" class="inpt2" [ngModel]="materialToEdit.min_value">
+            <label  class="labl5">{{"min_value" | translate}}<span>*</span></label>
+            <input required type="text" formControlName="min_value" class="inpt2" [ngModel]="materialToEdit.min_value">
+            <mat-error *ngIf="!EditForm.controls['min_value'].valid && EditForm.controls['min_value'].touched">
+              Quantity is required
+            </mat-error>
           </div>
         </div>
         <div class="details-contain">
           <div class="notice">
-            <label  class="labl6" for="notice">Notices</label><br>
+            <label  class="labl6" for="notice">{{"notice" | translate}}</label><br>
             <textarea rows="3"  class="inpt6"></textarea>
           </div>
         </div>
       </div>
       <div class="action-btns">
-        <button class="btn save" type="submit" (click)="EditMaterial()" >Save</button>
-        <button class="btn clear" (click)="clearForm()">Clear</button>
-        <button class="btn back" routerLink="/Materials">Cancel</button>
+        <button class="btn save" type="submit" (click)="EditMaterial()" >{{"save" | translate}}</button>
+        <button class="btn clear" (click)="clearForm()">{{"clear" | translate}}</button>
+        <button class="btn back" routerLink="/Materials">{{"cacnel" | translate}}</button>
       </div>
 
     </form>

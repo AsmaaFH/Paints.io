@@ -1,8 +1,7 @@
 import { IMaterial } from './../../models/imaterial';
 import { MaterialsService } from './../../services/materials.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subject, Subscription } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MessagesService } from '../../services/messages.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -56,16 +55,19 @@ export class MaterialsListComponent implements OnInit{
 }
 }
 
-  Search(): IMaterial[] {
-    if (!this.dataSource) { return []; }
-    if (this.textSearch === '') { return this.dataSource; }
-    return this.dataSource.filter(item => {
-      return Object.keys(item).some(key => {
-        return String(item[key]).toLowerCase().includes(this.textSearch.toLowerCase());
-      });
+Search(): IMaterial[] {
+  if (!this.dataSource) { return []; }
+  if (this.textSearch === '') { return this.dataSource; }
+  return this.dataSource.filter(item => {
+    return Object.keys(item).some(key => {
+      return String(item[key]).toLowerCase().includes(this.textSearch.toLowerCase());
     });
-  }
+  });
+}
 
+  Search1(){
+    console.log(this.dataSource.forEach(element => {element.name.toLowerCase().includes(this.textSearch.toLowerCase()); }));
+  }
   // clearSearch(){
   //   this.dataSource = this.materialsService.getAllRecords();
   // }

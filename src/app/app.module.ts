@@ -1,7 +1,8 @@
+import { LanguageInterceptor } from './interceptors/language.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialsListComponent } from './materials/components/materials-list/materials-list.component';
@@ -50,6 +51,14 @@ import { MessagesComponent } from './materials/components/messages/messages.comp
 import { LoginComponent } from './Users/components/login/login.component';
 import { SearchPipe } from './materials/pipes/search.pipe';
 import { ConfirmDialogComponent } from './ConfirmationDialog/confirm-dialog/confirm-dialog.component';
+import { HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,8 +113,22 @@ import { ConfirmDialogComponent } from './ConfirmationDialog/confirm-dialog/conf
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule] ,
-  providers: [],
+    MatTreeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]    }
+    }),
+  ] ,
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true
+    },
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

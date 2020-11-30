@@ -10,10 +10,18 @@ import { FactoryService } from '../factory.service';
 export class HeaderComponent implements OnInit {
 
 factory: Factory;
+lang;
 
 constructor( private factoryService: FactoryService) { }
 
 ngOnInit(): void {
   this.factory = this.factoryService.getFactoryInfo();
+  this.lang = localStorage.getItem('lang') || 'en';
+}
+
+changeLang(lang){
+  console.log(lang);
+  localStorage.setItem('lang', lang);
+  window.location.reload();
 }
 }

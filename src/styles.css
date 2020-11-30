@@ -15,7 +15,6 @@ button:focus, a:focus, input:focus{
   box-shadow: none !important;
 }
 
-
 /* table */
 mat-table{
   border: 3px solid #eee;
@@ -57,7 +56,7 @@ mat-table{
 }
 
 tr.grid-row:hover{
-  background-color: rgb(214, 210, 210) !important;
+  background-color: rgb(214, 210, 210);
 }
 
 .filter-group,.filter-group-btns {
@@ -66,7 +65,7 @@ tr.grid-row:hover{
 
 }
 .filter-group input{
-  width: 200px !important;
+  width: 200px;
 }
 .filter-group-btns{
   margin: 0 11px;
@@ -99,8 +98,14 @@ tr.grid-row:hover{
   border-radius: 10px;
   border: 1px solid #eee;
 }
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
 .form-container h3, .form-container form .main{
-  width: 40%;
+  width: 45%;
   margin: auto;
 }
 .form-container .details-contain{
@@ -108,6 +113,7 @@ tr.grid-row:hover{
   border-radius: 10px;
   padding:10px;
   margin-bottom: 15px;
+  background-image: Linear-gradient(to right top, #ffffff, #eee);
 }
 .form-container .formGroup{
   display: flex;
@@ -129,15 +135,14 @@ tr.grid-row:hover{
 .form-container input, .form-container textarea{
   padding: 5px;
   color: #82838B;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
 }
 .form-container .labl1{
   padding-left: 5px;
 }
 .form-container .lablToDisabledInpt{
   padding-left: 15px;
-}
-.form-container .labl2{
-
 }
 .form-container .labl3{
   padding-left: 38px;
@@ -153,10 +158,6 @@ tr.grid-row:hover{
 }
 .form-control .notice label{
   color: #01bfbb;
-}
-.form-container input , .form-container textarea{
-  border: 1px solid #D8D8D8;
-    border-radius: 5px;
 }
 .action-btns{
   display: flex;
@@ -196,25 +197,29 @@ tr.grid-row:hover{
   color: blue;
   border: 1px solid blue;
 }
-
+@media only screen and (max-width: 1400px) {
+  .form-container h3, .form-container form .main{
+    width: 56%;
+  }
+}
 @media only screen and (max-width: 1300px) {
-  .form-container h3, .form-container form .main{
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .form-container h3, .form-container form .main{
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 1100px) {
   .form-container h3, .form-container form .main{
     width: 60%;
   }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
+  .form-container h3, .form-container form .main{
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 1100px) {
   .form-container h3, .form-container form .main{
     width: 70%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .form-container h3, .form-container form .main{
+    width: 80%;
   }
 }
 @media only screen and (max-width: 900px) {

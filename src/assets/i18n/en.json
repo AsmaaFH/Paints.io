@@ -1,0 +1,17 @@
+{
+  "login" : "login",
+  "home" : "home",
+  "Add_Material" : "Add Material",
+  "edit Material" : "Edit Material",
+  "save" : "save",
+  "cancel" : "cancel",
+  "clear" : "clear",
+  "select" : "select",
+  "code" : "Code",
+  "name" : "Name",
+  "quantity" : "Quantity",
+  "price" : "Price (1Kilo)",
+  "min_value" : "Min Value",
+  "action" : "action",
+  "notice" : "Notice"
+}
